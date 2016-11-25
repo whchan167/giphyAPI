@@ -1,1 +1,1 @@
-<?php include_once("movietriviagame.html"); ?>
+<?php include_once("giphyAPI.html"); ?>
