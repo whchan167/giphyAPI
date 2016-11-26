@@ -1,12 +1,17 @@
-.jumbotron {background-color:#03A9F4;
-			text-align:center;
-			}
-.row2 {background-color:gray;
-	   width:100%; height:200px;}
+.head {	text-align:center;
+		width:100%; height:100px;
+		font-size: 60px;
+		font-color: #03a9f4;}
 
-#SearchAnime {text-size:30px;
-			  }
+.row2 {padding-top:20px;
+	   width:100%; height:100px;}
 
-.row2 {padding-top:20px;}
 
-.Anime {margin-left:10px;}
+.Anime {margin-left:10px;
+		background-color:#ff5722;}
+
+
+.animeDiv {margin:10px;
+		   display:inline-block;}
+
+#Contents {width:800px; height:400px;}
