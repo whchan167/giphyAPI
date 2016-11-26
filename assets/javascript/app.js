@@ -1,4 +1,3 @@
-$(document).ready(function(){
 //create array of Animes
 var Animes= ['Naruto', 'Bleach', 'Dragonball Super', 'Reborn', 'One piece', 'totoro', 'doraemon', 'death note', 'gundam'];
 
@@ -115,6 +114,5 @@ $("#AddAnime").on('click', function(){
 //display anime info in html
 $(document.body).on("click", ".Anime", displayanimes);
 
-});
 
 
