@@ -14,7 +14,7 @@ function displayanimes() {
 	var anime = $(this).attr('data-name');
 	
 	//constructing queryURL using name of anime
-	var queryURL ="http://api.giphy.com/v1/gifs/search?q=" + anime + "-anime&api_key=dc6zaTOxFJmzC&limit=10";
+	var queryURL ="https://api.giphy.com/v1/gifs/search?q=" + anime + "-anime&api_key=dc6zaTOxFJmzC&limit=10";
     console.log(queryURL);
 	
 	//Ajax request from queryURL
@@ -46,23 +46,6 @@ function displayanimes() {
 		animeimg.attr("data-still", results[i].images.fixed_height_still.url);
 		animeimg.attr("data-animate", results[i].images.fixed_height.url);
 
-		//create dynamic animated images when click on the image
-		$(".gif").on("click", function(){
-		//set value of the attribute on html element
-			var state = $(this).attr("data-state");
-		// If the clicked image's state is still, update it's src attribute to what it's data-animate value is.
-        // Then set the image's data-state to animate
-		if (state === "still") {
-			$(this).attr("src", $(this).data("animate"));
-			$(this).attr("data-state", "animate");
-			console.log(this)
-		}
-		else {
-		//change back to state ==="still" if not "still"
-        $(this).attr("src", $(this).data("still"));
-        $(this).attr("data-state", "still");
-		}
-		});
 
 		//append the paragraph and the animeimg to the animeDiv
 		animeDiv.append(animep);
@@ -73,6 +56,23 @@ function displayanimes() {
 		}
 	  });
 	};
+
+//====================function for dynamic animated images=======================
+		function animation(){
+		//set value of the attribute on html element
+			var state = $(this).attr("data-state");
+		// If the clicked image's state is still, update it's src attribute to what it's data-animate value is.
+        // Then set the image's data-state to animate
+		if (state === "still") {
+			$(this).attr("src", $(this).data("animate"));
+			$(this).attr("data-state", "animate");
+		}
+		else {
+		//change back to state ==="still" if not "still"
+        $(this).attr("src", $(this).data("still"));
+        $(this).attr("data-state", "still");
+		}
+		};
 
 //======================================create anime buttons=====================================
 //create buttons for each name in AnimeArray
@@ -112,7 +112,9 @@ $("#AddAnime").on('click', function(){
 });
 
 //display anime info in html
-$(document.body).on("click", ".Anime", displayanimes);
+$(document).on("click", ".Anime", displayanimes);
+//display animated images when click on image
+$(document).on("click", ".gif", animation);
 
 
 
